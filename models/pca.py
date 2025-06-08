@@ -6,7 +6,7 @@
 
 
 # Logger
-# Load environment variables from .env file
+
 
 # PCA
 
