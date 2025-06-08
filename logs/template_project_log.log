@@ -1,0 +1,20 @@
+2024-10-22 15:15:34,851 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:21,741 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:21,742 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:21,742 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:21,742 - template_project - ERROR - Error validating configuration: 1 validation error for DiseaseConfig
+diseases
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.8/v/missing
+2024-10-22 15:17:50,816 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:50,817 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:50,817 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:17:50,818 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:20:32,089 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:20:32,090 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:20:32,090 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:20:32,091 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:34:41,510 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:34:41,511 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:34:41,511 - template_project - INFO - Configuration loaded and validated successfully.
+2024-10-22 15:34:41,511 - template_project - INFO - Configuration loaded and validated successfully.

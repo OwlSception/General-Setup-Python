@@ -1,0 +1,405 @@
+{
+    "version": "1.0.0",
+    "description": "API server for retrieving genomic information",
+    "author": "First Last",
+    "your_email": "your_email@your_domain.com",
+    "api_keys": {
+        // Bioinformatics 
+        "ncbi": "YOUR_NCBI_API_KEY",
+        "ensembl": "YOUR_ENSEMBL_API_KEY",
+        "ucsc": "YOUR_UCSC_API_KEY",
+        "ebi": "YOUR_EBI_API_KEY",
+        "ddb_japan": "YOUR_DDBJ_API_KEY",
+        "clinvar": "YOUR_CLINVAR_API_KEY",
+        "gtex": "YOUR_GTEX_API_KEY",
+        "encode": "YOUR_ENCODE_API_KEY",
+        "roadmap": "YOUR_ROADMAP_API_KEY",
+        "chip_atlas": "YOUR_CHIP_ATLAS_API_KEY",
+        "epifactors": "YOUR_EPIFACTORS_API_KEY",
+        "methbase": "YOUR_METHBASE_API_KEY",
+        "deepblue": "YOUR_DEEPBLUE_API_KEY",
+        //Citations
+        "zotero_api_key": "your_zotero_api_key",
+        "zotero_library_id": "your_library_id",
+        "library_type": "user", // or 'group'
+        "csl_style": "mla" // Change to preferred style (e.g., "chicago", "mla")
+    },
+    "file_paths": {
+        "raw_data_dir": "./data/raw_data/",
+        "processed_data_dir": "./data/processed_data/",
+        "log_dir": "./logs/",
+        "dynamic_storage_dir": "./data/dynamic_storage/",
+        "db_path": "./data/genomic_data.db",
+        "citation_path": "./logs/"
+    },
+    "logging": {
+        "level": "DEBUG",
+        "file_rotation": "1 week"
+    },
+    "storage": {
+        "storage_format": {
+            "json": ".json",
+            "jsonc": ".jsonc",
+            "xml": ".xml",
+            "csv": ".csv",
+            "tsv": ".tsv",
+            "excel": ".xlsx",
+            "sqlite": ".sqlite",
+            "sqlite3": ".sqlite3",
+            "FASTA": ".fasta",
+            "FASTAQ": "fastaq",
+            "BAM": ".bam",
+            "SAM": ".sam",
+            "CRAM": ".cram",
+            "VCF": ".vcf",
+            "GTF": ".gtf",
+            "GFF": ".gff"
+        },
+        "save_filename": "results_%Y%m%d_%H%M%S"
+    },
+    "retry_settings": {
+        "retry_attempts": 5,
+        "retry_delay": 10
+    },
+    "rate_limiting": {
+        "limit": 40,
+        "period": 60,
+        "disk_space_threshold": 0.1,
+        "memory_threshold": 200,
+        "disk_space_warning_threshold": 80,
+        "memory_threshold_warning": 150,
+        "max_data_size": 1024,
+        "batch_size": 1024,
+        "off_hours": {
+            "start_time": "01:00",
+            "end_time": "05:00"
+        },
+        "iso_8601_intervals": "P1D/2024-11-26T01:00:00/2024-11-26T05:00:00",
+        "dynamic_adjustment": true
+    },
+    "metadata": {
+        "last_updated": "",
+        "notes": "Enhanced JSON with dynamic adjustments"
+    },
+    "current_disease": "Diabetes: Type 2",
+    "disease_info": {
+        "BRCA1": {
+            "variants": {
+                "SNP": [
+                    "rs1799950",
+                    "rs80357474"
+                ],
+                "indel": [
+                    "c.5266dupC",
+                    "c.68_69delAG"
+                ],
+                "duplication": [
+                    "c.1915_1916dup"
+                ],
+                "deletion": [
+                    "c.3700_3704del",
+                    "c.181T>G"
+                ],
+                "missense": [
+                    "c.211A>G",
+                    "c.5209G>T"
+                ],
+                "nonsense": [
+                    "c.4186T>C",
+                    "c.4035T>A"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "associated_phenotypes": [
+                    ""
+                ],
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        },
+        "TP53": {
+            "variants": {
+                "SNP": [
+                    "rs1042522",
+                    "rs17878362"
+                ],
+                "indel": [
+                    "c.1010_1011del"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "associated_phenotypes": [
+                    ""
+                ],
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        },
+        "Charcot-Marie-Tooth (CMT)": {
+            "variants": {
+                "SNP": [
+                    "rs1042522",
+                    "rs17878362",
+                    "rs35575339",
+                    "rs80356795"
+                ],
+                "indel": [
+                    "c.1010_1011del",
+                    "c.761_762delTG",
+                    "c.2810_2811del"
+                ],
+                "duplication": [
+                    "PMP22_duplication",
+                    "c.453dupC",
+                    "c.890dupA"
+                ],
+                "deletion": [
+                    "PMP22_deletion",
+                    "c.665delG"
+                ],
+                "missense": [
+                    "c.76A>G",
+                    "c.449C>T",
+                    "c.659C>T"
+                ],
+                "nonsense": [
+                    "c.334C>T",
+                    "c.775C>T"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "associated_phenotypes": [
+                    ""
+                ],
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        },
+        "Ankylosing Spondylitis (AS)": {
+            "variants": {
+                "SNP": [
+                    "rs4349859",
+                    "rs13202464",
+                    "rs11209026",
+                    "rs10050860",
+                    "rs653178",
+                    "rs30187"
+                ],
+                "indel": [
+                    "c.174_175insA",
+                    "c.652delG"
+                ],
+                "duplication": [
+                    "ERAP1_duplication"
+                ],
+                "deletion": [
+                    "HLA-B27_deletion",
+                    "c.58delG"
+                ],
+                "missense": [
+                    "c.1270G>A",
+                    "c.2084C>T"
+                ],
+                "nonsense": [
+                    "c.496C>T",
+                    "c.1001C>A"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "associated_phenotypes": [
+                    ""
+                ],
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        },
+        "BRCA2": {
+            "variants": {
+                "SNP": [
+                    "rs766173",
+                    "rs11571653"
+                ],
+                "indel": [
+                    "c.5946delT",
+                    "c.6275_6276delTT"
+                ],
+                "duplication": [
+                    "c.7934_7935dup"
+                ],
+                "deletion": [
+                    "c.3847_3848delGT",
+                    "c.7007_7008del"
+                ],
+                "missense": [
+                    "c.632-2A>G",
+                    "c.1813T>A"
+                ],
+                "nonsense": [
+                    "c.6174delT",
+                    "c.7558C>T"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "associated_phenotypes": [
+                    ""
+                ],
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        },
+        "Diabetes: Type 1": {
+            "variants": {
+                "SNP": [
+                    "rs2476601",
+                    "rs1990760",
+                    "rs689",
+                    "rs10795791"
+                ],
+                "indel": [
+                    "c.1143_1144del"
+                ],
+                "duplication": [
+                    "HLA-DRB1_duplication"
+                ],
+                "deletion": [
+                    "HLA-DQB1_deletion"
+                ],
+                "missense": [
+                    "c.1858C>T"
+                ],
+                "nonsense": [
+                    "c.123G>T"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "associated_phenotypes": [
+                    ""
+                ],
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        },
+        "Diabetes: Type 2": {
+            "variants": {
+                "SNP": [
+                    "rs7903146",
+                    "rs1801282",
+                    "rs7754840",
+                    "rs5219",
+                    "rs1800562"
+                ],
+                "indel": [
+                    "c.2983_2987del"
+                ],
+                "duplication": [
+                    "SLC30A8_duplication"
+                ],
+                "deletion": [
+                    "c.163_166del"
+                ],
+                "missense": [
+                    "c.145G>T",
+                    "c.360C>A"
+                ],
+                "nonsense": [
+                    "c.847C>T"
+                ]
+            },
+            "metadata": {
+                "prevalance": "1 in 400",
+                "references": [
+                    "doi:10.1234/genomics.2021"
+                ]
+            }
+        }
+    },
+    "data_sources": {
+        "ncbi_genbank": {
+            "enabled": false,
+            "base_url": "api.ncbi.nlm.nih.gov/genbank/",
+            "citation": "Unknown Citation"
+        },
+        "ncbi_refseq": {
+            "enabled": false,
+            "base_url": "api.ncbi.nlm.nih.gov/refseq/",
+            "citation": "Unknown Citation"
+        },
+        "ncbi_dbsnp": {
+            "enabled": false,
+            "base_url": "api.ncbi.nlm.nih.gov/dbsnp/",
+            "citation": "Unknown Citation"
+        },
+        "ensembl": {
+            "enabled": false,
+            "base_url": "rest.ensembl.org/",
+            "citation": "Unknown Citation"
+        },
+        "ucsc": {
+            "enabled": false,
+            "base_url": "api.genome.ucsc.edu/",
+            "citation": "Unknown Citation"
+        },
+        "ebi": {
+            "enabled": false,
+            "base_url": "www.ebi.ac.uk/ebisearch/ws/rest/",
+            "citation": "Unknown Citation"
+        },
+        "ddb_japan": {
+            "enabled": false,
+            "base_url": "api.ddbj.nig.ac.jp/",
+            "citation": "Unknown Citation"
+        },
+        "clinvar": {
+            "enabled": false,
+            "base_url": "clinvarminer.genetics.utah.edu/api/",
+            "citation": "Unknown Citation"
+        },
+        "gtex": {
+            "enabled": false,
+            "base_url": "gtexportal.org/rest/v1/",
+            "citation": "Unknown Citation"
+        },
+        "encode": {
+            "enabled": false,
+            "base_url": "www.encodeproject.org/api/",
+            "citation": "Unknown Citation"
+        },
+        "roadmap": {
+            "enabled": false,
+            "base_url": "www.roadmapepigenomics.org/api/",
+            "citation": "Unknown Citation"
+        },
+        "chip_atlas": {
+            "enabled": false,
+            "base_url": "chip-atlas.org/api/",
+            "citation": "Unknown Citation"
+        },
+        "epifactors": {
+            "enabled": false,
+            "base_url": "epifactors.epigenetics.org/api/",
+            "citation": "Unknown Citation"
+        },
+        "methbase": {
+            "enabled": false,
+            "base_url": "methbase.org/api/",
+            "citation": "Unknown Citation"
+        },
+        "deepblue": {
+            "enabled": false,
+            "base_url": "deepblue.mpi-inf.mpg.de/api/",
+            "citation": "Unknown Citation"
+        }
+    }
+}
