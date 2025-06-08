@@ -62,8 +62,6 @@ def create_project_directory(project_name):
         os.path.join(project_name, 'src', 'visualization'),
         os.path.join(project_name, 'src', 'features'),
         os.path.join(project_name, 'src', 'models'),
-        os.path.join(project_name, 'src', 'storage'),
-        os.path.join(project_name, 'src', 'styling'),
         os.path.join(project_name, 'tests'),
         os.path.join(project_name, 'utils'),
     ]
@@ -80,28 +78,57 @@ def create_project_directory(project_name):
     init_files = {
         os.path.join(project_name, "config", "__init__.py"): "",
         os.path.join(project_name, "config", "config.py"): "",
+        os.path.join(project_name, "config", "config_logging.json"): "",
+        os.path.join(project_name, "config", "config_data.json"): "",
+        os.path.join(project_name, "config", "config_visualization.json"): "",
         os.path.join(project_name, "config", "load_config.py"): "",
         os.path.join(project_name, "data", "__init__.py"): "",
         os.path.join(project_name, "docs", "README.md"): f"# {project_name.title()} Read Me",
         os.path.join(project_name, "docs", "LICENSE"): "License",
+        os.path.join(project_name, "docs", "requirements.txt"): "",  # We'll fill this later
+        os.path.join(project_name, "docs", "index.md"): f"# {project_name.title()} Index \n",
         os.path.join(project_name, "logs", "citations.json"): "",
         os.path.join(project_name, "logs", f'{project_name}.log'): "",
         os.path.join(project_name, "logger", "citation_logger.py"): "",
         os.path.join(project_name, "logger", "setup_logger.py"): "",
         os.path.join(project_name, "logger", "__init__.py"): "",
+        os.path.join(project_name, "src", "cleaning", "skewed_data.py"): "",
         os.path.join(project_name, "src", "dataset.py"): "",
+        s.path.join(project_name, "notebooks", "Descriptive_Analaysis.ipynb"): "",
+        os.path.join(project_name, "notebooks", "Exploratory_Analysis.ipynb"): "",
+        s.path.join(project_name, "notebooks", "Inferential_Analysis.ipynb"): "",
+        s.path.join(project_name, "notebooks", "Causal_Analysis.ipynb"): "",
+        s.path.join(project_name, "notebooks", "Predictive_Analysis.ipynb"): "",
         os.path.join(project_name, "src", "data_acquisition", "data_acquisition.py"): "",
         os.path.join(project_name, "src", "data_acquisition", "helpers", "helpers.py"): "",
         os.path.join(project_name, "src", "data_acquisition", "read_files.py"): "",
+        os.path.join(project_name, "src", "data_acquisition", "read_files_image.py"): "",
+        os.path.join(project_name, "src", "cleaning", "data_optimize.py"): "",
+        os.path.join(project_name, "src", "cleaning", "missing_data_check.py"): "",
+        os.path.join(project_name, "src", "cleaning", "text_cleaning.py"):"",
+        os.path.join(project_name, "src", "cleaning", "text_cleaning_tokenizing.py"):"",
+        os.path.join(project_name, "src", "cleaning", "text_cleaning_.py"):"",
         os.path.join(project_name, "src", "cleaning", "skewed_data.py"): "",
-        os.path.join(project_name, "src", "features", "build_features.py"): "",
+        os.path.join(project_name, "src", "cleaning", "regex.py"): "",
+        os.path.join(project_name, "src", "cleaning", "sorting.py"): "",
+        os.path.join(project_name, "src", "features", "build_features.py"): "", 
+        os.path.join(project_name, "src", "features", "stratification.py"): "",
+        os.path.join(project_name, "src", "features", "dimensionality_reduction.py"):"",
+        os.path.join(project_name, "src", "features", "other_llm_cleaning.py"):"",
+        os.path.join(project_name, "src", "features", "assumptions_tests.py"):"",
+        os.path.join(project_name, "src", "models", "__init__.py"): "", 
+        os.path.join(project_name, "src", "models", "ab_testing.py"): "", 
+        os.path.join(project_name, "src", "models", "model_evaluation.py"): "", 
+        os.path.join(project_name, "src", "models", "model_evaluation.py"): "", 
+        os.path.join(project_name, "src", "visualization", "__init__.py"): "", 
         os.path.join(project_name, "src", "visualization", "plots.py"): "",
+        os.path.join(project_name, "src", "visualization", "charts.py"): "",
+        os.path.join(project_name, "src", "visualization", "heatmap.py"): "",
         os.path.join(project_name, "src", "__init__.py"): "",
         os.path.join(project_name, "tests", "__init__.py"): "",
         os.path.join(project_name, "utils", "utils.py"): "",
+        os.path.join(project_name, ".gitignore"): "", 
         os.path.join(project_name, "main.py"): "",
-        os.path.join(project_name, "docs", "requirements.txt"): "",  # We'll fill this later
-        os.path.join(project_name, "docs", "index.md"): f"# {project_name.title()} Index \n",
     }
 
     # Create the files and write the boilerplate
@@ -111,7 +138,9 @@ def create_project_directory(project_name):
             if not os.path.exists(file_path):
                 with open(file_path, 'w') as f:
                     # Write boilerplate content if it's not empty
-                    if "logger" in file_path or "config" in file_path or "data_acquisition" in file_path or "run_project.py" in file_path:
+                       # if "logger" in file_path or "config" in file_path or "data_acquisition" in file_path or "run_project.py" in file_path:
+                        # f.write(get_python_boilerplate(file_path))
+                    if file_path[-2:] == "py":
                         f.write(get_python_boilerplate(file_path))
                     elif "index.md" in file_path:
                         f.write(print_directory_structure(project_name))
