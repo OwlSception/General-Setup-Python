@@ -140,7 +140,8 @@ def create_project_directory(project_name):
                     # Write boilerplate content if it's not empty
                        # if "logger" in file_path or "config" in file_path or "data_acquisition" in file_path or "run_project.py" in file_path:
                         # f.write(get_python_boilerplate(file_path))
-                    if file_path[-2:] == "py":
+                    # if file_path[-2:] == "py":
+                    if file_path.endswith('.py'):
                         f.write(get_python_boilerplate(file_path))
                     elif "index.md" in file_path:
                         f.write(print_directory_structure(project_name))
