@@ -6,7 +6,8 @@
 
 # Local Library
 
-# Logger 
+# Logger
+logger = setup_logger("Data Analysis")
 
 
 
